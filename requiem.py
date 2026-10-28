@@ -22,6 +22,7 @@ from collections import Counter
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Optional
 
 DEFAULT_MODEL = os.environ.get("REQUIEM_MODEL", "gemma4:cloud")
 DEFAULT_OLLAMA = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
@@ -353,7 +354,7 @@ locally; choose a local model tag to keep the whole ritual on your machine.*
 """
 
 
-def main(argv: list[str] | None = None) -> int:
+def main(argv: Optional[list[str]] = None) -> int:
     parser = argparse.ArgumentParser(
         prog="requiem",
         description="Write an obituary for a repository that has gone quiet.",
